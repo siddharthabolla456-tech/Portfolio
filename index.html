@@ -586,6 +586,7 @@
         </div>
 
         <div class="chat-header-actions">
+          <a href="https://chatgpt.com" target="_blank" class="chat-header-btn" title="Open ChatGPT (chatgpt.com)" rel="noreferrer" style="text-decoration:none;">🌐</a>
           <button class="chat-header-btn active" id="chat-sound-btn" title="Sound FX: On">🔔</button>
           <button class="chat-header-btn" id="chat-voice-btn" title="Read Aloud (TTS): Off">🗣️</button>
           <button class="chat-header-btn" id="chat-settings-btn" title="AI Settings / API Key">⚙️</button>
@@ -602,6 +603,7 @@
 
       <!-- Quick Suggestion Chips -->
       <div class="chat-suggestions">
+        <button class="suggestion-chip" data-prompt="Connect me with ChatGPT">🤖 Connect with ChatGPT</button>
         <button class="suggestion-chip" data-prompt="What projects has Siddhartha worked on?">🚀 What projects has he worked on?</button>
         <button class="suggestion-chip" data-prompt="What technologies does he know?">💻 What technologies does he know?</button>
         <button class="suggestion-chip" data-prompt="Show me his resume">📄 Show me his resume</button>
@@ -752,10 +754,18 @@
         </p>
 
         <div class="form-group">
+          <label class="form-label" for="openai-api-key-input">Optional OpenAI / ChatGPT API Key</label>
+          <input type="password" id="openai-api-key-input" class="form-input" placeholder="sk-proj-...">
+          <small style="color: var(--text-muted); font-size: 0.78rem; display: block; margin-top: 3px;">
+            Enables OpenAI GPT-4o-mini inside this chatbot.
+          </small>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;">
           <label class="form-label" for="gemini-api-key-input">Optional Google Gemini API Key</label>
           <input type="password" id="gemini-api-key-input" class="form-input" placeholder="AIzaSy...">
-          <small style="color: var(--text-muted); font-size: 0.78rem; display: block; margin-top: 4px;">
-            Stored only in your browser's local storage. Leave empty to use default offline engine.
+          <small style="color: var(--text-muted); font-size: 0.78rem; display: block; margin-top: 3px;">
+            Enables Google Gemini 1.5 Flash inside this chatbot.
           </small>
         </div>
       </div>

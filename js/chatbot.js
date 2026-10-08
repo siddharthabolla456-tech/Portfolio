@@ -642,6 +642,29 @@
             `
           };
         }
+      },
+
+      // 17. Connect with ChatGPT
+      {
+        id: "chatgpt",
+        patterns: ["chatgpt", "openai", "gpt", "connect me with chatgpt", "connect chatgpt", "open chatgpt", "talk to chatgpt", "use chatgpt"],
+        handler: () => {
+          return {
+            text: `You can connect directly with OpenAI ChatGPT at https://chatgpt.com, or plug in your OpenAI API Key in the settings (⚙️) to power this assistant with GPT-4!`,
+            html: `
+              <div class="chat-action-card">
+                <div class="chat-action-title">🤖 OpenAI ChatGPT Integration</div>
+                <div class="chat-action-desc">
+                  You can open ChatGPT in a new tab or enter your OpenAI API key in settings to activate live ChatGPT generative mode:
+                </div>
+                <div class="chat-btn-group">
+                  <a href="https://chatgpt.com" target="_blank" class="chat-btn chat-btn-primary">🌐 Open ChatGPT (chatgpt.com)</a>
+                  <button class="chat-btn" onclick="window.openSettingsModal()">⚙️ Configure API Key</button>
+                </div>
+              </div>
+            `
+          };
+        }
       }
     ],
 
@@ -754,6 +777,68 @@ Be polite, professional, concise, and enthusiastic about Siddhartha's qualificat
 
       const data = await response.json();
       const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
+      return { text: text, html: `<p>${text.replace(/\n/g, '<br>')}</p>` };
+    }
+  };
+
+  // Optional OpenAI ChatGPT integration
+  const OpenAIClient = {
+    apiKey: localStorage.getItem('openai_api_key') || '',
+
+    setApiKey(key) {
+      this.apiKey = key.trim();
+      if (this.apiKey) {
+        localStorage.setItem('openai_api_key', this.apiKey);
+      } else {
+        localStorage.removeItem('openai_api_key');
+      }
+    },
+
+    hasApiKey() {
+      return Boolean(this.apiKey);
+    },
+
+    async ask(query) {
+      if (!this.apiKey) throw new Error("No OpenAI API key configured");
+
+      const systemPrompt = `You are the personal AI chatbot for Siddhartha Bolla's portfolio website.
+Profile:
+- Name: Siddhartha Bolla
+- Role: AI/ML Developer & Full-Stack Engineer
+- College: VNR VJIET, Hyderabad
+- Degree: B.Tech in CSE (Artificial Intelligence & Machine Learning)
+- Batch: 2025 - 2029
+- CGPA: 9.45 / 10
+- LeetCode: https://leetcode.com/u/Siddhartha_bolla (200+ solved)
+- GitHub: https://github.com/siddharthabolla456-tech
+- LinkedIn: https://www.linkedin.com/in/bolla-siddhartha-189581375?utm_source=share_via&utm_content=profile&utm_medium=member_android
+- Projects: KrishiLink AI, Smart Feedback Management System, Portfolio Bot
+- Skills: Python, React, FastAPI, Node.js, Express, MongoDB, Scikit-Learn
+- Email: siddharthabolla456@gmail.com
+Answer the visitor's question accurately, concisely, and warmly.`;
+
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: query }
+          ],
+          temperature: 0.7
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`OpenAI API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const text = data.choices?.[0]?.message?.content || "No response received.";
       return { text: text, html: `<p>${text.replace(/\n/g, '<br>')}</p>` };
     }
   };
@@ -930,10 +1015,17 @@ Be polite, professional, concise, and enthusiastic about Siddhartha's qualificat
       this.appendMessage('user', text);
       this.showTyping();
 
-      // Check if Gemini API is active or use Local NLP
+      // Check if OpenAI or Gemini API is active, or use Local NLP
       try {
         let reply;
-        if (GeminiClient.hasApiKey()) {
+        if (OpenAIClient.hasApiKey()) {
+          try {
+            reply = await OpenAIClient.ask(text);
+          } catch (err) {
+            console.warn("OpenAI API error, falling back to local NLP", err);
+            reply = NLUEngine.processQuery(text);
+          }
+        } else if (GeminiClient.hasApiKey()) {
           try {
             reply = await GeminiClient.ask(text);
           } catch (err) {

@@ -238,12 +238,16 @@
   const settingsBtn = document.getElementById('chat-settings-btn');
   const saveApiKeyBtn = document.getElementById('save-api-key-btn');
   const apiKeyInput = document.getElementById('gemini-api-key-input');
+  const openAiKeyInput = document.getElementById('openai-api-key-input');
   const activeModeTag = document.getElementById('active-ai-mode');
 
   window.openSettingsModal = function () {
     if (settingsModal) {
       if (apiKeyInput) {
         apiKeyInput.value = localStorage.getItem('gemini_api_key') || '';
+      }
+      if (openAiKeyInput) {
+        openAiKeyInput.value = localStorage.getItem('openai_api_key') || '';
       }
       settingsModal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -273,18 +277,34 @@
     });
   }
 
-  if (saveApiKeyBtn && apiKeyInput) {
+  if (saveApiKeyBtn) {
     saveApiKeyBtn.addEventListener('click', () => {
-      const val = apiKeyInput.value.trim();
-      if (val) {
-        localStorage.setItem('gemini_api_key', val);
-        showToast("✅ Gemini API Key saved! Live AI mode enabled.");
-        if (activeModeTag) activeModeTag.textContent = "Google Gemini Live Mode";
+      const geminiVal = apiKeyInput ? apiKeyInput.value.trim() : '';
+      const openAiVal = openAiKeyInput ? openAiKeyInput.value.trim() : '';
+
+      if (openAiVal) {
+        localStorage.setItem('openai_api_key', openAiVal);
+        showToast("✅ OpenAI ChatGPT Key saved! ChatGPT mode enabled.");
+        if (activeModeTag) activeModeTag.textContent = "OpenAI ChatGPT Mode";
+      } else {
+        localStorage.removeItem('openai_api_key');
+      }
+
+      if (geminiVal) {
+        localStorage.setItem('gemini_api_key', geminiVal);
+        if (!openAiVal) {
+          showToast("✅ Gemini API Key saved! Live Gemini mode enabled.");
+          if (activeModeTag) activeModeTag.textContent = "Google Gemini Live Mode";
+        }
       } else {
         localStorage.removeItem('gemini_api_key');
-        showToast("ℹ️ API Key cleared. Switched to offline intelligent engine.");
+      }
+
+      if (!openAiVal && !geminiVal) {
+        showToast("ℹ️ Switched to default offline intelligent NLP engine.");
         if (activeModeTag) activeModeTag.textContent = "Offline Intelligent NLP";
       }
+
       window.closeSettingsModal();
     });
   }
