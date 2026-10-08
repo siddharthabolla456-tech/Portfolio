@@ -1,0 +1,20 @@
+{
+  "name": "siddhartha-portfolio-chatbot",
+  "version": "1.0.0",
+  "description": "Personal Portfolio & Integrated Profile AI Chatbot for Siddhartha Bolla",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "ai-chatbot",
+    "nlp",
+    "javascript",
+    "fastapi",
+    "machine-learning"
+  ],
+  "author": "Siddhartha Bolla <siddharthabolla456@gmail.com>",
+  "license": "MIT"
+}
