@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Siddhartha Bolla - Technical Domain Round 2 Task Submission Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 14mm 16mm;
+      @bottom-right {
+        content: counter(page);
+      }
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      line-height: 1.5;
+      background: #ffffff;
+      font-size: 10pt;
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #4f46e5 100%);
+      color: #ffffff;
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .header-banner h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .header-banner .subtitle {
+      font-size: 11pt;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 9pt;
+    }
+    .meta-item strong {
+      color: #bfdbfe;
+    }
+    .meta-item a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    h2 {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #1e3a8a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    h3 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+    p {
+      margin-bottom: 8px;
+      color: #334155;
+      font-size: 9.5pt;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 10px;
+      font-size: 9.3pt;
+      color: #334155;
+    }
+    li {
+      margin-bottom: 3px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px 0;
+      font-size: 9pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      font-weight: 700;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 8pt;
+      font-weight: 700;
+    }
+    .badge-success {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+    .badge-blue {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+    .card {
+      border: 1px solid #e2e8f0;
+      background-color: #f8fafc;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 10pt;
+      margin-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-subtitle {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+    code {
+      background-color: #f1f5f9;
+      color: #2563eb;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 8.8pt;
+    }
+    pre {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 8.5pt;
+      margin: 8px 0;
+      overflow-x: auto;
+      line-height: 1.4;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer-note {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 8.5pt;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <h1>Project Submission & Architecture Report</h1>
+    <div class="subtitle">Technical Domain — Round 2 Task: Personal Portfolio with Integrated AI Chatbot</div>
+    
+    <div class="meta-grid">
+      <div class="meta-item">
+        <strong>Candidate Name:</strong> Siddhartha Bolla<br>
+        <strong>Institution:</strong> VNR VJIET, Hyderabad<br>
+        <strong>Program:</strong> B.Tech in CSE (AI & ML) [2025–2029]<br>
+        <strong>Current CGPA:</strong> 9.45 / 10
+      </div>
+      <div class="meta-item">
+        <strong>Email:</strong> <a href="mailto:siddharthabolla456@gmail.com">siddharthabolla456@gmail.com</a><br>
+        <strong>GitHub:</strong> <a href="https://github.com/siddharthabolla456-tech">github.com/siddharthabolla456-tech</a><br>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bolla-siddhartha-189581375?utm_source=share_via&utm_content=profile&utm_medium=member_android">linkedin.com/in/bolla-siddhartha</a><br>
+        <strong>LeetCode:</strong> <a href="https://leetcode.com/u/Siddhartha_bolla">leetcode.com/u/Siddhartha_bolla</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <h2>📌 1. Executive Summary & Objective</h2>
+  <p>
+    This project was engineered to fulfill the requirements of the <strong>Technical Domain — Round 2 Task</strong>. The objective is to present a high-performance personal portfolio website coupled with an intelligent, profile-aware AI conversational chatbot capable of answering questions about Siddhartha's background, education, technical skills, projects, resume, and coding statistics.
+  </p>
+  <p>
+    A critical architectural priority was <strong>universal cross-device portability</strong>: the repository is completely self-contained with <strong>zero external server processes, zero compilation steps, and zero mandatory API keys</strong>. Whoever clones or opens the repository on their computer can run and evaluate it immediately.
+  </p>
+
+  <!-- Compliance Table -->
+  <h2>🎯 2. Requirements Compliance Matrix</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Task Specification</th>
+        <th style="width: 55%;">Implementation Details</th>
+        <th style="width: 20%;">Evaluation Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Personal Portfolio</strong></td>
+        <td>Modern, responsive glassmorphic UI with dark/light mode toggle representing Siddhartha Bolla, education at VNR VJIET (CGPA: 9.45, Batch 2025–2029), skills, and projects.</td>
+        <td><span class="badge badge-success">✅ Completed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Integrated AI Chatbot</strong></td>
+        <td>Self-contained conversational agent with multi-intent NLP engine, quick suggestion chips, voice input (speech-to-text), voice synthesis (read aloud), and dynamic action cards.</td>
+        <td><span class="badge badge-success">✅ Completed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Resume Accessibility</strong></td>
+        <td>Dual accessibility: Full-screen interactive online resume modal + direct PDF download button linking to <code>assets/resume.pdf</code>.</td>
+        <td><span class="badge badge-success">✅ Completed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Coding Profiles</strong></td>
+        <td>Integrated stats and direct clickable badges for LeetCode (200+ solved), GitHub (siddharthabolla456-tech), HackerRank (5-Star), and CodeChef.</td>
+        <td><span class="badge badge-success">✅ Completed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Universal Portability</strong></td>
+        <td>Runs on any PC (Windows, Mac, Linux) by double-clicking <code>index.html</code>, launching <code>start.bat</code>, or running Python/Node local servers.</td>
+        <td><span class="badge badge-success">✅ Completed</span></td>
+      </tr>
+      <tr>
+        <td><strong>Public Hosting Ready</strong></td>
+        <td>Automated GitHub Pages workflow (<code>.github/workflows/deploy.yml</code>) pre-configured for 1-click global deployment.</td>
+        <td><span class="badge badge-success">✅ Completed</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Chatbot Technical Architecture -->
+  <h2>🤖 3. AI Chatbot Technical Architecture</h2>
+  <p>
+    The chatbot is built to deliver instant, contextual responses without relying on paid cloud APIs that might fail or expire during evaluation:
+  </p>
+  <ul>
+    <li><strong>Client-Side NLU & Token Matcher:</strong> Employs weighted token scoring, entity extraction, and synonym expansion. Handles varied phrasings including <em>"What projects has he worked on?"</em>, <em>"What technologies does he know?"</em>, <em>"Show me his resume"</em>, <em>"What are his coding profiles?"</em>, and <em>"What is his CGPA?"</em>.</li>
+    <li><strong>Interactive Action Triggers:</strong> Bot responses render interactive HTML action cards with clickable buttons that directly launch the Resume Modal, initiate PDF downloads, or open verified LeetCode and LinkedIn profiles.</li>
+    <li><strong>Zero-Dependency Audio Synthesis:</strong> Generates responsive sound effects using the browser's native Web Audio API oscillators without requiring external MP3 downloads.</li>
+    <li><strong>Speech Recognition & Synthesis:</strong> Supports hands-free voice input via the Web Speech API (<code>webkitSpeechRecognition</code>) and text-to-speech narration (<code>speechSynthesis</code>).</li>
+    <li><strong>Dual Mode (Offline + Gemini Live):</strong> Operates offline by default; includes an optional settings modal where evaluators can enter a Google Gemini API key to activate live LLM generative chat.</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <!-- Featured Projects -->
+  <h2>🚀 4. Featured Projects Breakdown</h2>
+  
+  <div class="card">
+    <div class="card-title">
+      <span>1. KrishiLink AI — Smart Agri-Commerce & Predictive ML Ecosystem</span>
+      <span class="badge badge-blue">React • FastAPI • ML • Node.js</span>
+    </div>
+    <div class="card-subtitle">Agricultural Marketplace with Machine Learning Crop Forecasting</div>
+    <p>
+      An end-to-end full-stack platform bridging smallholder farmers, Farmer Producer Organizations (FPOs), and institutional buyers. Features machine learning services built in FastAPI and Scikit-Learn to forecast crop yield and market commodity rates, combined with interactive Leaflet map trade matchmaking.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span>2. Smart Feedback Management System</span>
+      <span class="badge badge-blue">Node.js • Express • MongoDB • REST APIs</span>
+    </div>
+    <div class="card-subtitle">College Hackathon Project — Academic Feedback Analytics</div>
+    <p>
+      Scalable RESTful backend service engineered for college hackathon competition. Implements secure JWT authentication, role-based access control (RBAC) across student, faculty, and administrative tiers, automated sentiment aggregation, and modular Postman test suites.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span>3. AI Portfolio with Integrated Conversational Agent</span>
+      <span class="badge badge-blue">JavaScript • NLP Engine • Web Audio • Glassmorphism</span>
+    </div>
+    <div class="card-subtitle">Portable Personal Web Application with Interactive AI</div>
+    <p>
+      A high-performance personal portfolio featuring this autonomous AI chatbot. Designed with dark/light theme persistence, dynamic typing effects, animated statistics counters, full resume inspection modal, and cross-device zero-dependency portability.
+    </p>
+  </div>
+
+  <!-- Technical Skills Summary -->
+  <h2>💻 5. Technical Skills Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">Domain</th>
+        <th style="width: 70%;">Technologies & Frameworks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Programming Languages</strong></td>
+        <td>Python, JavaScript (ES6+), C++, C, SQL, HTML5, CSS3</td>
+      </tr>
+      <tr>
+        <td><strong>Frontend & Web</strong></td>
+        <td>React.js, Tailwind CSS, Vite, Vanilla JavaScript, Responsive Design</td>
+      </tr>
+      <tr>
+        <td><strong>Backend & Databases</strong></td>
+        <td>Node.js, Express.js, FastAPI, RESTful APIs, JWT Auth, MongoDB, MySQL</td>
+      </tr>
+      <tr>
+        <td><strong>AI / Machine Learning</strong></td>
+        <td>Scikit-Learn, Pandas, NumPy, Predictive Modeling, Exploratory Data Analysis</td>
+      </tr>
+      <tr>
+        <td><strong>Developer Tools</strong></td>
+        <td>Git, GitHub, Postman, Docker, VS Code, Linux / Bash</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- How to Run and Deploy -->
+  <h2>⚡ 6. How to Run & Deploy the Project</h2>
+  <p>The project provides four straightforward execution methods:</p>
+
+  <h3>Method A: Instant Browser Launch (Zero Installation)</h3>
+  <p>Double-click <code>index.html</code> (or <code>start.bat</code> on Windows) in file explorer. The application opens directly in any modern web browser.</p>
+
+  <h3>Method B: Python Local Server</h3>
+  <pre>python server.py
+# Server opens automatically at http://localhost:8000</pre>
+
+  <h3>Method C: Node.js / NPM</h3>
+  <pre>npm start
+# or: npx serve .</pre>
+
+  <h3>Method D: 1-Click Public Deployment (GitHub Pages)</h3>
+  <p>Push the repository to GitHub and enable GitHub Pages under <strong>Settings ➔ Pages ➔ Source: GitHub Actions</strong>. GitHub automatically builds and hosts the site at:</p>
+  <p><code>https://siddharthabolla456-tech.github.io/siddhartha-portfolio-chatbot/</code></p>
+
+  <!-- Contacts and Submission Info -->
+  <h2>📞 7. Task Submission & Contacts</h2>
+  <div class="card">
+    <p><strong>Evaluation Contacts (Round 2 Coordinators):</strong></p>
+    <ul>
+      <li><strong>Pallavi (Technical Head):</strong> +91 8919505048</li>
+      <li><strong>Sahithi (Web Development Lead):</strong> +91 9182624247</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    Document Generated for Siddhartha Bolla • VNR VJIET (B.Tech CSE AI & ML) • Round 2 Submission Report
+  </div>
+
+</body>
+</html>
