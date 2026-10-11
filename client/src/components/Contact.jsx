@@ -9,8 +9,24 @@ export default function Contact({ profile, onShowToast }) {
   });
   const [submitting, setSubmitting] = useState(false);
 
+  const emailAddress = profile.email || "siddharthabolla456@gmail.com";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailAddress);
+    onShowToast(`📋 Copied "${emailAddress}" to clipboard!`);
+  };
+
+  const handleOpenEmail = (e) => {
+    // Direct mailto navigation
+    window.location.href = `mailto:${emailAddress}`;
+  };
+
+  const handleOpenGmail = () => {
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}`, '_blank');
   };
 
   const handleSubmit = async (e) => {
@@ -51,7 +67,7 @@ export default function Contact({ profile, onShowToast }) {
           <div className="section-tag">Let's Connect</div>
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-desc">
-            Have a question, collaboration proposal, or technical opportunity? Feel free to drop a message!
+            Have a question, collaboration proposal, or technical opportunity? Feel free to drop a message or reach out directly!
           </p>
         </div>
 
@@ -61,7 +77,36 @@ export default function Contact({ profile, onShowToast }) {
               <div className="contact-icon">📧</div>
               <div className="contact-details">
                 <h4>Direct Email</h4>
-                <p><a href={`mailto:${profile.email || "siddharthabolla456@gmail.com"}`}>{profile.email || "siddharthabolla456@gmail.com"}</a></p>
+                <p>
+                  <a 
+                    href={`mailto:${emailAddress}`}
+                    onClick={handleOpenEmail}
+                    style={{ fontWeight: 600, color: "var(--accent-primary, #6366f1)" }}
+                    title="Send Email"
+                  >
+                    {emailAddress}
+                  </a>
+                </p>
+                <div style={{ display: "flex", gap: "8px", marginTop: "6px" }}>
+                  <button 
+                    type="button" 
+                    className="btn btn-secondary btn-sm" 
+                    style={{ fontSize: "0.78rem", padding: "4px 10px" }}
+                    onClick={handleOpenGmail}
+                    title="Compose in Gmail Web"
+                  >
+                    🌐 Open in Gmail
+                  </button>
+                  <button 
+                    type="button" 
+                    className="btn btn-secondary btn-sm" 
+                    style={{ fontSize: "0.78rem", padding: "4px 10px" }}
+                    onClick={handleCopyEmail}
+                    title="Copy Email Address"
+                  >
+                    📋 Copy Email
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -74,18 +119,34 @@ export default function Contact({ profile, onShowToast }) {
             </div>
 
             <div className="contact-item">
-              <div className="contact-icon">🔗</div>
+              <div className="contact-icon">🟡</div>
               <div className="contact-details">
-                <h4>LinkedIn Profile</h4>
-                <p><a href={profile.linkedin || "https://www.linkedin.com/in/bolla-siddhartha-189581375?utm_source=share_via&utm_content=profile&utm_medium=member_android"} target="_blank" rel="noreferrer">linkedin.com/in/bolla-siddhartha</a></p>
+                <h4>LeetCode & Smart Interviews</h4>
+                <p>
+                  <a href={profile.leetcode || "https://leetcode.com/u/Siddhartha_bolla"} target="_blank" rel="noreferrer">
+                    leetcode.com/u/Siddhartha_bolla
+                  </a>
+                  <br />
+                  <a href="https://hive.smartinterviews.in/profile/siddhartha_bolla" target="_blank" rel="noreferrer" style={{ fontSize: "0.85rem", color: "var(--accent-primary, #6366f1)" }}>
+                    hive.smartinterviews.in/profile/siddhartha_bolla
+                  </a>
+                </p>
               </div>
             </div>
 
             <div className="contact-item">
-              <div className="contact-icon">🐙</div>
+              <div className="contact-icon">🔗</div>
               <div className="contact-details">
-                <h4>GitHub Profile</h4>
-                <p><a href={profile.github || "https://github.com/siddharthabolla456-tech"} target="_blank" rel="noreferrer">github.com/siddharthabolla456-tech</a></p>
+                <h4>LinkedIn & GitHub</h4>
+                <p>
+                  <a href={profile.linkedin || "https://www.linkedin.com/in/bolla-siddhartha-189581375?utm_source=share_via&utm_content=profile&utm_medium=member_android"} target="_blank" rel="noreferrer">
+                    linkedin.com/in/bolla-siddhartha
+                  </a>
+                  <br />
+                  <a href={profile.github || "https://github.com/siddharthabolla456-tech"} target="_blank" rel="noreferrer">
+                    github.com/siddharthabolla456-tech
+                  </a>
+                </p>
               </div>
             </div>
           </div>
@@ -124,7 +185,7 @@ export default function Contact({ profile, onShowToast }) {
                   type="text" 
                   id="subject" 
                   className="form-input" 
-                  placeholder="e.g. Project Collaboration or Opportunity" 
+                  placeholder="e.g. Full-Stack / AI Opportunity" 
                   value={formData.subject}
                   onChange={handleChange}
                 />

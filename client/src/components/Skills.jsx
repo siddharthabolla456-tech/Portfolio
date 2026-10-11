@@ -12,9 +12,9 @@ export default function Skills({ skills }) {
       <div className="container">
         <div className="section-header">
           <div className="section-tag">Tech Stack</div>
-          <h2 className="section-title">Technical Skills & Expertise</h2>
+          <h2 className="section-title">Technical Skills & Languages</h2>
           <p className="section-desc">
-            A comprehensive MERN stack and machine learning toolkit dynamically loaded from the MongoDB database.
+            A comprehensive computer science toolkit, multilingual capabilities, and machine learning proficiencies.
           </p>
         </div>
 
@@ -23,13 +23,19 @@ export default function Skills({ skills }) {
             className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
             onClick={() => setActiveCategory('all')}
           >
-            All Skills
+            All Skills ({skills.length})
           </button>
           <button 
-            className={`filter-btn ${activeCategory === 'programming' || activeCategory === 'languages' ? 'active' : ''}`}
+            className={`filter-btn ${activeCategory === 'languages' ? 'active' : ''}`}
             onClick={() => setActiveCategory('languages')}
           >
-            Languages
+            Languages & Spoken
+          </button>
+          <button 
+            className={`filter-btn ${activeCategory === 'computer' || activeCategory === 'core' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('computer')}
+          >
+            Core CS & DSA
           </button>
           <button 
             className={`filter-btn ${activeCategory === 'frontend' ? 'active' : ''}`}
@@ -41,7 +47,7 @@ export default function Skills({ skills }) {
             className={`filter-btn ${activeCategory === 'backend' ? 'active' : ''}`}
             onClick={() => setActiveCategory('backend')}
           >
-            Backend & Node/MongoDB
+            Backend & MongoDB
           </button>
           <button 
             className={`filter-btn ${activeCategory === 'ai' ? 'active' : ''}`}
@@ -60,7 +66,7 @@ export default function Skills({ skills }) {
               </div>
               <div className="skill-tags">
                 {category.items.map((item) => (
-                  <span className="skill-tag" key={item.name}>
+                  <span className="skill-tag" key={item.name} title={`Level: ${item.level}`}>
                     {item.name}
                   </span>
                 ))}

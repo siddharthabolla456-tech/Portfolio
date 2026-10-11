@@ -14,7 +14,7 @@ export default function Projects({ projects, onAskBot }) {
           <div className="section-tag">Portfolio</div>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-desc">
-            Production-grade implementations fetched dynamically from MongoDB via the Express backend API.
+            Production-grade software architectures engineered with scalable backends and machine learning intelligence.
           </p>
         </div>
 
@@ -23,7 +23,13 @@ export default function Projects({ projects, onAskBot }) {
             className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
             onClick={() => setFilter('all')}
           >
-            All Projects
+            All Featured Projects ({projects.length})
+          </button>
+          <button 
+            className={`filter-btn ${filter === 'backend' ? 'active' : ''}`}
+            onClick={() => setFilter('backend')}
+          >
+            Backend & NLP Systems
           </button>
           <button 
             className={`filter-btn ${filter === 'aiml' ? 'active' : ''}`}
@@ -31,25 +37,13 @@ export default function Projects({ projects, onAskBot }) {
           >
             AI & Machine Learning
           </button>
-          <button 
-            className={`filter-btn ${filter === 'fullstack' ? 'active' : ''}`}
-            onClick={() => setFilter('fullstack')}
-          >
-            Full-Stack MERN
-          </button>
-          <button 
-            className={`filter-btn ${filter === 'backend' ? 'active' : ''}`}
-            onClick={() => setFilter('backend')}
-          >
-            Backend & REST APIs
-          </button>
         </div>
 
-        <div className="projects-grid">
+        <div className="projects-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))" }}>
           {filteredProjects.map((project) => (
             <div className="project-card" key={project.projectId}>
-              <div className={`project-banner ${project.bannerClass || 'portfolio'}`}>
-                <span className="project-category-badge">{project.categoryBadge || 'Full-Stack'}</span>
+              <div className={`project-banner ${project.bannerClass || 'feedback'}`}>
+                <span className="project-category-badge">{project.categoryBadge || 'Featured Project'}</span>
                 <div className="project-banner-content">
                   <div className="project-banner-icon">{project.bannerIcon || '🚀'}</div>
                   <h3>{project.title.split('—')[0]}</h3>

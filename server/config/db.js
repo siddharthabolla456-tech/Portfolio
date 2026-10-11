@@ -18,7 +18,7 @@ const connectDB = async () => {
     global.isMongoConnected = true;
     console.log(`✅ [MongoDB] Connected successfully to: ${conn.connection.host}/${conn.connection.name}`);
 
-    // Auto seed if empty
+    // Auto seed / synchronize latest data
     await autoSeed();
   } catch (err) {
     isConnected = false;
@@ -30,23 +30,17 @@ const connectDB = async () => {
 
 const autoSeed = async () => {
   try {
-    const profileCount = await Profile.countDocuments();
-    if (profileCount === 0) {
-      console.log('🌱 [MongoDB] Seeding initial profile data...');
-      await Profile.create(seedData.profile);
-    }
+    // Keep MongoDB updated with latest candidate profile, projects, and skills
+    await Profile.deleteMany({});
+    await Profile.create(seedData.profile);
 
-    const projectCount = await Project.countDocuments();
-    if (projectCount === 0) {
-      console.log('🌱 [MongoDB] Seeding initial project data...');
-      await Project.insertMany(seedData.projects);
-    }
+    await Project.deleteMany({});
+    await Project.insertMany(seedData.projects);
 
-    const skillCount = await Skill.countDocuments();
-    if (skillCount === 0) {
-      console.log('🌱 [MongoDB] Seeding initial skills data...');
-      await Skill.insertMany(seedData.skills);
-    }
+    await Skill.deleteMany({});
+    await Skill.insertMany(seedData.skills);
+
+    console.log('🌱 [MongoDB] Synchronized latest profile, 2 featured projects, and skills!');
   } catch (error) {
     console.error('Error during auto-seed:', error.message);
   }

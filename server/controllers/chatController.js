@@ -9,18 +9,17 @@ const intents = [
     id: "projects",
     patterns: ["project", "projects", "work", "portfolio", "what has he built", "apps", "built", "show projects"],
     handler: () => ({
-      text: "Siddhartha has engineered major projects including KrishiLink AI, Smart Feedback Management System, and this interactive MERN Portfolio with AI Chatbot.",
+      text: "Siddhartha has engineered 2 major featured projects: Smart Feedback Management System (Node.js, Express, MongoDB) and KrishiLink AI (React, FastAPI, Scikit-Learn, Node.js).",
       actions: [
-        { label: "View KrishiLink AI", type: "scroll", target: "projects" },
         { label: "View Feedback System", type: "scroll", target: "projects" },
+        { label: "View KrishiLink AI", type: "scroll", target: "projects" },
         { label: "GitHub Profile", type: "link", url: p.github }
       ],
       html: `
-        <p>Here are the key featured projects Siddhartha has built:</p>
+        <p>Here are Siddhartha's featured engineering projects:</p>
         <div class="chat-card">
-          <strong>🌾 KrishiLink AI:</strong> Agri-commerce platform with ML crop yield forecasting (React, FastAPI, Scikit-Learn, Node.js).<br><br>
-          <strong>📊 Smart Feedback Management System:</strong> College hackathon platform with role-based REST APIs (Node.js, Express, MongoDB).<br><br>
-          <strong>🤖 AI Portfolio & Assistant:</strong> Full MERN stack portfolio featuring client/server NLP and voice synthesis.
+          <strong>📊 Smart Feedback Management System:</strong> College hackathon platform featuring NLP grievance categorization, duplicate issue clustering, and role-based REST APIs (Node.js, Express, MongoDB).<br><br>
+          <strong>🌾 KrishiLink AI:</strong> Smart agri-commerce platform with ML crop yield forecasting and price analytics (React, FastAPI, Scikit-Learn, Node.js).
         </div>
       `
     })
@@ -49,18 +48,19 @@ const intents = [
     id: "feedback_system",
     patterns: ["feedback", "feedback system", "smart feedback", "academic feedback"],
     handler: () => ({
-      text: "Smart Feedback Management System is an enterprise academic feedback platform engineered for college hackathons using Node.js, Express, MongoDB, and RESTful APIs with role-based access for students, faculty, and administrators.",
+      text: "Smart Feedback Management System is an enterprise academic feedback platform engineered for college hackathons using Node.js, Express, MongoDB, and RESTful APIs with NLP text analytics, duplicate clustering, and role-based access.",
       actions: [
-        { label: "GitHub Repo", type: "link", url: p.github },
+        { label: "GitHub Repo", type: "link", url: "https://github.com/siddharthabolla456-tech/smart-feedback-management-system" },
         { label: "View in Projects", type: "scroll", target: "projects" }
       ],
       html: `
         <div class="chat-card">
           <strong>📊 Smart Feedback Management System</strong><br>
-          • Role-Based Access Control (RBAC)<br>
-          • Sentiment & rating metrics aggregation<br>
-          • Modular Postman API test collection<br>
-          • <em>Stack:</em> Node.js, Express.js, MongoDB, JWT, REST APIs
+          • NLP text classification & safety hazard escalation<br>
+          • Duplicate issue clustering with automatic priority boost<br>
+          • Role-Based Access Control (RBAC) & Postman test collection<br>
+          • <em>Stack:</em> Node.js, Express.js, MongoDB, JWT, REST APIs<br>
+          • <em>Repo:</em> <a href="https://github.com/siddharthabolla456-tech/smart-feedback-management-system" target="_blank">github.com/siddharthabolla456-tech/smart-feedback-management-system</a>
         </div>
       `
     })
@@ -69,18 +69,59 @@ const intents = [
     id: "skills",
     patterns: ["skill", "skills", "tech", "technologies", "tech stack", "languages", "stack", "abilities"],
     handler: () => ({
-      text: "Siddhartha's tech stack includes Python, JavaScript, C++, React.js, Node.js, Express.js, FastAPI, MongoDB, MySQL, Scikit-Learn, Git, and Docker.",
+      text: "Siddhartha's technical expertise spans Python, C++, C, Java, JavaScript, React.js, Node.js, Express.js, MongoDB, FastAPI, Scikit-Learn, Data Structures & Algorithms, and Git.",
       actions: [
         { label: "Explore Skills Section", type: "scroll", target: "skills" }
       ],
       html: `
         <div class="chat-card">
           <strong>💻 Technical Expertise:</strong><br>
-          • <strong>Languages:</strong> Python, JavaScript (ES6+), C++, C, SQL, HTML5, CSS3<br>
-          • <strong>Frontend:</strong> React.js, Tailwind CSS, Vite, Responsive Web<br>
-          • <strong>Backend:</strong> Node.js, Express.js, FastAPI, RESTful APIs, JWT<br>
-          • <strong>AI/ML:</strong> Scikit-Learn, Pandas, NumPy, Predictive Modeling<br>
-          • <strong>Databases & Tools:</strong> MongoDB, MySQL, Git, GitHub, Postman, Docker
+          • <strong>Programming:</strong> Python, C++, C, Java, JavaScript (ES6+), SQL, HTML5, CSS3<br>
+          • <strong>Core CS:</strong> Data Structures & Algorithms (DSA), OOP, DBMS, OS, Networks<br>
+          • <strong>Frontend:</strong> React.js, Tailwind CSS, Vite, Responsive Web Design<br>
+          • <strong>Backend:</strong> Node.js, Express.js, MongoDB, FastAPI, RESTful APIs, JWT<br>
+          • <strong>AI/ML & Tools:</strong> Scikit-Learn, Pandas, NumPy, NLP, Postman, Git & GitHub<br>
+          • <strong>Spoken Languages:</strong> Telugu (Native), Hindi (Fluent), English (Professional)
+        </div>
+      `
+    })
+  },
+  {
+    id: "languages",
+    patterns: ["language", "languages spoken", "speak", "telugu", "hindi", "english", "mother tongue"],
+    handler: () => ({
+      text: "Siddhartha is multilingual and speaks Telugu (Native/Bilingual), Hindi (Fluent), and English (Professional Working Proficiency).",
+      actions: [
+        { label: "View About Section", type: "scroll", target: "about" }
+      ],
+      html: `
+        <div class="chat-card">
+          <strong>🗣️ Languages Spoken:</strong><br>
+          • <strong>Telugu:</strong> Native / Bilingual Proficiency<br>
+          • <strong>Hindi:</strong> Fluent / Professional Proficiency<br>
+          • <strong>English:</strong> Professional Working Proficiency
+        </div>
+      `
+    })
+  },
+  {
+    id: "coding_profiles",
+    patterns: ["coding profile", "coding profiles", "leetcode", "dsa", "hackerrank", "hive", "smart interviews", "rank", "problems solved"],
+    handler: () => ({
+      text: "Siddhartha is active on LeetCode (200+ solved problems), Smart Interviews Hive, and HackerRank (5-star problem solving badges).",
+      actions: [
+        { label: "🟡 LeetCode Profile", type: "link", url: "https://leetcode.com/u/Siddhartha_bolla" },
+        { label: "🧠 Smart Interviews Hive", type: "link", url: "https://hive.smartinterviews.in/profile/siddhartha_bolla" },
+        { label: "⭐ HackerRank Profile", type: "link", url: "https://www.hackerrank.com/profile/siddharthabolla1" },
+        { label: "🐙 GitHub Profile", type: "link", url: p.github }
+      ],
+      html: `
+        <div class="chat-card">
+          <strong>🏆 Competitive Coding Profiles:</strong><br>
+          • 🟡 <strong>LeetCode:</strong> 200+ Problems Solved (<a href="https://leetcode.com/u/Siddhartha_bolla" target="_blank">leetcode.com/u/Siddhartha_bolla</a>)<br>
+          • 🧠 <strong>Smart Interviews Hive:</strong> <a href="https://hive.smartinterviews.in/profile/siddhartha_bolla" target="_blank">hive.smartinterviews.in/profile/siddhartha_bolla</a><br>
+          • ⭐ <strong>HackerRank:</strong> <a href="https://www.hackerrank.com/profile/siddharthabolla1" target="_blank">hackerrank.com/profile/siddharthabolla1</a><br>
+          • 🐙 <strong>GitHub:</strong> <a href="${p.github}" target="_blank">@siddharthabolla456-tech</a>
         </div>
       `
     })
