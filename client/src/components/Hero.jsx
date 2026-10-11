@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import profileImg from '../assets/profile.jpg';
 
 export default function Hero({ profile, onAskBot }) {
   const phrases = [
@@ -119,15 +120,16 @@ export default function Hero({ profile, onAskBot }) {
             <div className="hero-photo-wrapper" style={{ textAlign: "center", marginBottom: "1.25rem" }}>
               <div style={{ position: "relative", display: "inline-block" }}>
                 <img 
-                  src="/profile.jpg" 
+                  src={profileImg} 
                   alt="Siddhartha Bolla" 
+                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/profile.jpg'; }}
                   style={{
-                    width: "150px",
-                    height: "150px",
+                    width: "145px",
+                    height: "145px",
                     borderRadius: "50%",
                     objectFit: "cover",
-                    border: "3.5px solid var(--accent-primary, #6366f1)",
-                    boxShadow: "0 0 25px rgba(99, 102, 241, 0.45)",
+                    border: "3.5px solid var(--accent-primary, #3b82f6)",
+                    boxShadow: "0 0 25px rgba(59, 130, 246, 0.45)",
                     display: "block",
                     margin: "0 auto"
                   }}
@@ -141,15 +143,22 @@ export default function Hero({ profile, onAskBot }) {
                     width: "16px",
                     height: "16px",
                     borderRadius: "50%",
-                    border: "2.5px solid #0f172a",
+                    border: "2.5px solid #0b0f19",
                     boxShadow: "0 0 8px #10b981"
                   }}
                   title="Online & Ready to Build"
                 ></span>
               </div>
               <div style={{ marginTop: "10px" }}>
-                <div style={{ fontWeight: "700", fontSize: "1.1rem" }}>Siddhartha Bolla</div>
-                <div style={{ fontSize: "0.85rem", color: "var(--text-muted, #94a3b8)" }}>B.Tech CSE (AI & ML) • Batch 2025–2029</div>
+                <div style={{ fontWeight: "700", fontSize: "1.2rem", color: "var(--text-primary, #f8fafc)" }}>
+                  Siddhartha Bolla
+                </div>
+                <div style={{ fontSize: "0.92rem", fontWeight: "600", color: "var(--accent-primary, #3b82f6)", marginTop: "3px" }}>
+                  Branch: CSE (AI & ML)
+                </div>
+                <div style={{ fontSize: "0.82rem", color: "var(--text-muted, #94a3b8)", marginTop: "2px" }}>
+                  VNR VJIET • Batch 2025–2029
+                </div>
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImg from '../assets/profile.jpg';
 
 export default function About({ profile }) {
   const stats = profile.stats || {
@@ -23,23 +24,24 @@ export default function About({ profile }) {
           <div className="glass-card about-text">
             <div style={{ display: "flex", alignItems: "center", gap: "18px", marginBottom: "1.25rem", flexWrap: "wrap" }}>
               <img 
-                src="/profile.jpg" 
+                src={profileImg} 
                 alt="Siddhartha Bolla" 
+                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/profile.jpg'; }}
                 style={{ 
                   width: "88px", 
                   height: "88px", 
                   borderRadius: "50%", 
                   objectFit: "cover", 
-                  border: "3px solid var(--accent-primary, #6366f1)",
-                  boxShadow: "0 0 15px rgba(99, 102, 241, 0.35)"
+                  border: "3px solid var(--accent-primary, #3b82f6)",
+                  boxShadow: "0 0 15px rgba(59, 130, 246, 0.35)"
                 }} 
               />
               <div>
                 <h3 style={{ fontSize: "1.35rem", marginBottom: "4px" }}>
                   Siddhartha Bolla
                 </h3>
-                <div style={{ color: "var(--accent-primary, #6366f1)", fontWeight: 600, fontSize: "0.95rem" }}>
-                  AI/ML Developer & MERN Stack Software Engineer
+                <div style={{ color: "var(--accent-primary, #3b82f6)", fontWeight: 600, fontSize: "0.95rem" }}>
+                  Branch: CSE (AI & ML) • VNR VJIET
                 </div>
               </div>
             </div>
