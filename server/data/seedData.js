@@ -55,8 +55,8 @@ const seedData = {
       bannerIcon: "🌾",
       description: "An intelligent agri-commerce platform connecting farmers, FPOs, and bulk agricultural buyers. Features automated crop yield estimation, commodity market price forecasting, interactive geolocation mapping, and direct contract matchmaking.",
       techStack: ["React", "FastAPI", "Scikit-Learn", "Node.js", "Tailwind CSS", "Leaflet"],
-      githubUrl: "https://github.com/siddharthabolla456-tech",
-      liveUrl: "https://github.com/siddharthabolla456-tech",
+      githubUrl: "https://github.com/siddharthabolla456-tech/SIH-Krishilink",
+      liveUrl: "https://github.com/siddharthabolla456-tech/SIH-Krishilink",
       features: [
         "Crop Yield Estimation Predictive ML Model (Scikit-Learn)",
         "Commodity Price Trend Prediction & Market Analytics",

@@ -89,7 +89,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <span style={{ fontSize: "0.8rem", background: "#eff6ff", color: "#1d4ed8", padding: "2px 8px", borderRadius: "4px" }}>React, FastAPI, ML, Node.js</span>
                 </div>
                 <div style={{ fontSize: "0.85rem", color: "#475569", fontStyle: "italic", marginBottom: "4px" }}>
-                  Full-Stack Agricultural Platform with Machine Learning Integration (<a href="https://github.com/siddharthabolla456-tech" target="_blank" rel="noreferrer" style={{ color: "#2563eb" }}>GitHub Profile</a>)
+                  Full-Stack Agricultural Platform with Machine Learning Integration (<a href="https://github.com/siddharthabolla456-tech/SIH-Krishilink" target="_blank" rel="noreferrer" style={{ color: "#2563eb" }}>GitHub Repo</a>)
                 </div>
                 <ul style={{ paddingLeft: "18px", fontSize: "0.88rem", color: "#334155" }}>
                   <li>Built a complete full-stack marketplace connecting smallholder farmers, FPOs, and bulk agricultural buyers directly.</li>
