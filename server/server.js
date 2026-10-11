@@ -20,10 +20,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', apiRoutes);
 app.use('/api/chat', chatRoutes);
 
-// Serve static resume PDF from assets
+// Serve static assets directory (images, resume, etc.)
+app.use('/assets', express.static(path.join(__dirname, '../assets')));
+
+// Direct convenience endpoints for root static files
 app.get('/resume.pdf', (req, res) => {
   const resumePath = path.join(__dirname, '../assets/resume.pdf');
   res.sendFile(resumePath);
+});
+
+app.get('/profile.jpg', (req, res) => {
+  const profilePath = path.join(__dirname, '../assets/profile.jpg');
+  res.sendFile(profilePath);
 });
 
 // Serve compiled React frontend from client/dist if present
